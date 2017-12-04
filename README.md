@@ -1,19 +1,20 @@
-# SYMFONY - FORMULAIRES
-- **QUÊTE** - PHP Symfony - *Formulaires*
-- *171204_SymfonyFormulaires/171204_SymfonyFormulaires_Quete/*
+# SYMFONY - FOSUserBundle
+- **QUÊTE** - PHP Symfony - *FOSUserBundle*
+- *171204_SymfonyFOSUserBundle/171204_SymfonyFOSUserBundle_Quete/*
 ----
-**Les formulaires**
-Dans la quête précédente, tu as du normalement préparer l'environnement de travail pour celle-ci ! Tu as par conséquent, créé le controlleur ReviewController.php, avec la route correspondante ajoutée dans le fichier routing.yml, ainsi que deux méthodes d'actions, avec leurs routes et vues respectives vides.
-Avant d'attaquer le vif du sujet, nous allons ajouter le lien de notre vue twig précédente, à la vue qui contient toutes les routes.
+**FOSUserBundle**
+Aujourd'hui, nous nous attaquons à un bundle Symfony très connu nommé FOSUserBundle ! Ce bundle nous permet de générer, authentifier, et controller des utilisateurs de manière sécurisée et rapide, que ce soit dans les modèles ou dans les controlleurs.
 
-Suite au challenge, tu as désormais : deux routes associées à deux méthodes, un controlleur, une config à jour et deux vues vides (que tu as créées au préalable).
-
-Passons maintenant aux choses sérieuses, les formulaires ! Cette partie est assez lourde mais doit être maîtrisée par tout bon développeur. Prends donc le temps de bien te documenter et de tout lire.
+Tu vas donc, par le biais de cette quête, apprendre à déployer ce bundle et t'en servir correctement. Note qu'il existe plusieurs versions de ce bundle, en l'occurrence pour notre projet Flyaround sous Symfony3, nous prendrons un FOSUserBundle compatible, soit la version 2.0.
 
 **Objectifs**
-- Créer un FormType.
-- Manipuler son FormType dans un controlleur.
-- Utiliser des FieldType et leurs options.
-- Connaître les bonnes pratiques et les à cotés du formulaire Symfony3
+- Un nouveau FormType a été créé.
+- Le FormType contient tous les champs obligatoires et ses champs sont non NULL.
+- Un seul champ est ajouté automatiquement en BDD, sans passer par les FieldType.
+- L'override est fonctionnel.
+- La configuration a été mise à jour.
+- L'inscription est fonctionnelle.
+- Vous êtes authentifié et vous disposez d'un token.
+- Si vous n'êtes pas authentifié, vous êtes redirigé sur /login.
 
 > [WildCodeSchool](https://wildcodeschool.fr/)

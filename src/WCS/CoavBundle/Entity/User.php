@@ -3,14 +3,15 @@
 namespace WCS\CoavBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="WCS\CoavBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     public function fullName() {
         return $this->getFirstName() . ' '. $this->getLastName();
@@ -36,14 +37,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="userName", type="string", length=32)
-     */
-    private $userName;
+    protected $id;
 
     /**
      * @var string
@@ -62,13 +56,6 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=64)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="phoneNumber", type="string", length=32)
      */
     private $phoneNumber;
@@ -76,21 +63,21 @@ class User
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime")
+     * @ORM\Column(name="creationDate", type="datetime", nullable=true)
      */
     private $creationDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=16)
+     * @ORM\Column(name="role", type="string", length=16, nullable=true)
      */
     private $role;
 
@@ -110,14 +97,14 @@ class User
     /**
      * @var bool
      *
-     * @ORM\Column(name="isACertifiedPilot", type="boolean")
+     * @ORM\Column(name="isACertifiedPilot", type="boolean", nullable=true)
      */
     private $isACertifiedPilot;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isActive", type="boolean")
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
     private $isActive;
 
@@ -130,30 +117,6 @@ class User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set userName
-     *
-     * @param string $userName
-     *
-     * @return User
-     */
-    public function setUserName($userName)
-    {
-        $this->userName = $userName;
-
-        return $this;
-    }
-
-    /**
-     * Get userName
-     *
-     * @return string
-     */
-    public function getUserName()
-    {
-        return $this->userName;
     }
 
     /**
@@ -202,30 +165,6 @@ class User
     public function getLastName()
     {
         return $this->lastName;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
@@ -424,6 +363,7 @@ class User
      */
     public function __construct()
     {
+        parent::__construct();
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
